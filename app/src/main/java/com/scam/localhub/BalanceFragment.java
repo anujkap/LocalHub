@@ -12,34 +12,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 
-public class SendFragment extends Fragment {
+public class BalanceFragment extends Fragment {
     String msg,to,amt;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        return inflater.inflate(R.layout.fragment_send,container,false);
+        return inflater.inflate(R.layout.fragment_balance,container,false);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final EditText et1=view.findViewById(R.id.ReqET1);
-        final EditText et2=view.findViewById(R.id.ReqET2);
         Button button=view.findViewById(R.id.ReqBTN);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                to=et1.getText().toString();
-                amt=et2.getText().toString();
+            public void onClick(View view)
+            {
                 sendCall();
             }
         });
     }
     public void sendCall()
     {
-        String ussd = "*99*1*3"+ Uri.encode("#");
+        String ussd = "*99*3"+ Uri.encode("#");
         startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + ussd)));
     }
 }

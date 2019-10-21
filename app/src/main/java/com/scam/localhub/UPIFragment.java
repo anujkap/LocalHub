@@ -29,7 +29,7 @@ public class UPIFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
         UserTask a=new UserTask("Send",R.drawable.ic_system_update_24px);
-        UserTask b=new UserTask("Receive",R.drawable.ic_system_update_alt_24px);
+        UserTask b=new UserTask("Request",R.drawable.ic_system_update_alt_24px);
         UserTask c=new UserTask("Balance",R.drawable.ic_account_balance_24px);
         homeTaskList.add(a);
         homeTaskList.add(b);
@@ -53,10 +53,10 @@ public class UPIFragment extends Fragment
                         myIntent.putExtra("CallNo","*99*");
                         getContext().startActivity(myIntent);
                     }
-                    else if(check.equalsIgnoreCase("Twitter"))
+                    else if(check.equalsIgnoreCase("Request"))
                     {
                         Intent myIntent = new Intent(getContext(),UPIFragActivity.class);
-                        myIntent.putExtra("Frag","Receive");
+                        myIntent.putExtra("Frag","Request");
                         getContext().startActivity(myIntent);
                     }
                     else if(check.equalsIgnoreCase("Balance"))

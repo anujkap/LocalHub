@@ -29,13 +29,13 @@ public class UPIFragActivity extends AppCompatActivity {
         {
             fragment=new SendFragment();
         }
-        else if("Receive".equalsIgnoreCase(frag))
+        else if("Request".equalsIgnoreCase(frag))
         {
-            fragment=new TwitterFragment();
+            fragment=new RequestFragment();
         }
         else if("Balance".equalsIgnoreCase(frag))
         {
-            fragment=new Gmail();
+            fragment=new BalanceFragment();
         }
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
