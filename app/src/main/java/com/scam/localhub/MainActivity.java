@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +18,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setStatusBarColor(Color.parseColor("#0497E7"));
         super.onCreate(savedInstanceState);
-        Intent iin= getIntent();
-        Bundle bun = iin.getExtras();
-        String name=null;
-        if(bun!=null)
-        {
-            name=(String) bun.get("Name");
-        }
-        TextView tv=findViewById(R.id.UserName);
-        tv.setText(name);
         setContentView(R.layout.activity_main);
         UserTask a=new UserTask("Facebook",R.drawable.ic_facebook);
         UserTask b=new UserTask("Twitter",R.drawable.ic_twitter);

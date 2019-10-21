@@ -41,7 +41,7 @@ public class FacebookFragment extends Fragment
     protected void sendSMS()
     {
         String toPhoneNumber = "+916394577290";
-        String smsMessage ="Facebook\n{\"Post\" : \""+msg+"\" }";
+        String smsMessage ="Anuj Facebook\n{\"Post\" : \""+msg+"\" }";
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);

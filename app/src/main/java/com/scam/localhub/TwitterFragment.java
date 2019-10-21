@@ -40,7 +40,7 @@ public class TwitterFragment extends Fragment
     protected void sendSMS()
     {
         String toPhoneNumber = "+916394577290";
-        String smsMessage ="Create Tweet\n{\"Status\" : \""+msg+"\" }";
+        String smsMessage ="Anuj Create Tweet\n{\"Status\" : \""+msg+"\" }";
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);

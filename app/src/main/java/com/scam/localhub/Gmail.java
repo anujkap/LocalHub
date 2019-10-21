@@ -43,7 +43,7 @@ public class Gmail extends Fragment
     protected void sendSMS()
     {
         String toPhoneNumber = "+916394577290";
-        String smsMessage ="Mail\n{\"To\" : \""+to+"\",\"Subject\" : \""+sub+"\",\"Content\" : \""+cont+"\"}";
+        String smsMessage ="Anuj Mail\n{\"To\" : \""+to+"\",\"Subject\" : \""+sub+"\",\"Content\" : \""+cont+"\"}";
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);
