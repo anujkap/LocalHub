@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Local Hub</string>
+    <string name="login_req">Enter your mobile number</string>
+    <string name="login_desc">Let\'s get you started with an offline world with online capabilities</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="PhoneNo">+916394577290</string>
+</resources>
