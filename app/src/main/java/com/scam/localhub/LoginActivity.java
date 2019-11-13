@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    EditText editText = (EditText) findViewById(R.id.login_name);
+                    EditText editText = findViewById(R.id.login_name);
                     String message = editText.getText().toString();
                     intent.putExtra("Hi", message);
                     startActivity(intent);
