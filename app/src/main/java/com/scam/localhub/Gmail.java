@@ -1,5 +1,6 @@
 package com.scam.localhub;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.LayoutInflater;
@@ -13,9 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class Gmail extends Fragment
 {
-    String to,sub,cont;
+    String to,sub,cont,uname;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -25,6 +28,8 @@ public class Gmail extends Fragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        SharedPreferences prefs = getContext().getSharedPreferences("LocalHub", MODE_PRIVATE);
+        uname= prefs.getString("name","User");
         final EditText et1=view.findViewById(R.id.gmaET1);
         final EditText et2=view.findViewById(R.id.gmaET2);
         final EditText et3=view.findViewById(R.id.gmaET3);
@@ -43,7 +48,7 @@ public class Gmail extends Fragment
     protected void sendSMS()
     {
         String toPhoneNumber = "+916394577290";
-        String smsMessage ="Anuj Mail\n{\"To\" : \""+to+"\",\"Subject\" : \""+sub+"\",\"Content\" : \""+cont+"\"}";
+        String smsMessage =uname+" Mail\n{\"To\" : \""+to+"\",\"Subject\" : \""+sub+"\",\"Content\" : \""+cont+"\"}";
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);

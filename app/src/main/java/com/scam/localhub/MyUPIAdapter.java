@@ -54,7 +54,7 @@ public class MyUPIAdapter  extends ArrayAdapter<UserTask>
         View view=layoutInflater.inflate(layoutResource,parent,false);
         MyUPIAdapter.ViewHolder viewHolder=new MyUPIAdapter.ViewHolder(view);
         UserTask data=mData.get(position);
-        String Temp1=data.HomeTutorialTitle;
+        String Temp1=data.HomeTitle;
         viewHolder.homeTextViewRecyclerView1.setText(Temp1);
         viewHolder.homeImageViewRecyclerView.setImageResource(data.HomeImageId);
         view.setTag(viewHolder);

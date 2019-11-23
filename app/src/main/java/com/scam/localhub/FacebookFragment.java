@@ -1,5 +1,6 @@
 package com.scam.localhub;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,9 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class FacebookFragment extends Fragment
 {
-    String msg;
+    String msg,uname;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -28,6 +31,8 @@ public class FacebookFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
         final EditText et=view.findViewById(R.id.fbet);
+        SharedPreferences prefs = getContext().getSharedPreferences("LocalHub", MODE_PRIVATE);
+        uname= prefs.getString("name","User");
         Button button=view.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +46,7 @@ public class FacebookFragment extends Fragment
     protected void sendSMS()
     {
         String toPhoneNumber = "+916394577290";
-        String smsMessage ="Anuj Facebook\n{\"Post\" : \""+msg+"\" }";
+        String smsMessage =uname+" Facebook\n{\"Post\" : \""+msg+"\" }";
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);

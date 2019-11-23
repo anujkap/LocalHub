@@ -1,6 +1,7 @@
 package com.scam.localhub;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.parseColor("#0497E7"));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView username=findViewById(R.id.username);
+        SharedPreferences prefs = getSharedPreferences("LocalHub", MODE_PRIVATE);
+        String uname= prefs.getString("name","User");
+        username.setText(uname);
         UserTask a=new UserTask("Facebook",R.drawable.ic_facebook);
         UserTask b=new UserTask("Twitter",R.drawable.ic_twitter);
         UserTask c=new UserTask("Gmail",R.drawable.ic_gmail);

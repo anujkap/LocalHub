@@ -1,5 +1,6 @@
 package com.scam.localhub;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.LayoutInflater;
@@ -13,9 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class TwitterFragment extends Fragment
 {
-    String msg;
+    String msg,uname;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -27,6 +30,8 @@ public class TwitterFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
         final EditText et=view.findViewById(R.id.twiET1);
+        SharedPreferences prefs = getContext().getSharedPreferences("LocalHub", MODE_PRIVATE);
+        uname= prefs.getString("name","User");
         Button button=view.findViewById(R.id.twiBTN);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +45,7 @@ public class TwitterFragment extends Fragment
     protected void sendSMS()
     {
         String toPhoneNumber = "+916394577290";
-        String smsMessage ="Anuj Create Tweet\n{\"Status\" : \""+msg+"\" }";
+        String smsMessage =uname+" Create Tweet\n{\"Status\" : \""+msg+"\" }";
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);

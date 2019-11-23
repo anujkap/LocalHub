@@ -32,15 +32,16 @@
         app:layout_constraintTop_toTopOf="@+id/bar" />
 
     <TextView
-        android:id="@+id/anujname"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="7dp"
-        android:text="Anuj"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
         android:fontFamily="@font/sf_pro_regular"
+        android:hint="Username"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/good" />
 

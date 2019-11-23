@@ -3,6 +3,7 @@ package com.scam.localhub;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -31,15 +32,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 String name=et1.getText().toString();
-                if(TextUtils.isEmpty(name))
+                String number=et2.getText().toString();
+                if(TextUtils.isEmpty(name) || TextUtils.isEmpty(number))
                 {
                     Toast.makeText(LoginActivity.this, "Enter Valid Input", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    EditText editText = findViewById(R.id.login_name);
-                    String message = editText.getText().toString();
-                    intent.putExtra("Hi", message);
+                    SharedPreferences.Editor editor = getSharedPreferences("LocalHub", MODE_PRIVATE).edit();
+                    editor.putString("name",name);
+                    editor.putString("number",number);
+                    editor.apply();
                     startActivity(intent);
                 }
 

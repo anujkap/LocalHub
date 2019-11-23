@@ -2,12 +2,12 @@ package com.scam.localhub;
 
 public class UserTask
 {
-    String HomeTutorialTitle;
+    String HomeTitle;
     int HomeImageId;
 
-    public UserTask(String homeTutorialTitle,int homeImageId)
+    public UserTask(String Title,int homeImageId)
     {
-        HomeTutorialTitle = homeTutorialTitle;
+        HomeTitle = Title;
         HomeImageId=homeImageId;
     }
     public int getItemId(){
